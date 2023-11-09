@@ -253,14 +253,14 @@
 					<!--Главное Меню Игры-->
 					<div id="ima">
 						<div id="sm"></div>
-						<span id="name">Иван</span>
+						<span id="name"></span>
 					</div>
 					<div id="osn">
 						<div id="model"></div>
 					</div>
 					<div id="kn">
 						<span id="spr" class="bottom_main_page">Cправочник</span>
-						<span id="dr" class="bottom_main_page">Друзья</span>
+						<span id="dr" class="bottom_main_page" onclick="vkBridge.send('VKWebAppShowInviteBox')">Друзья</span>
 						<span id="stat" class="bottom_main_page">Cтатистика</span>
 					</div>
 					<div id="pn">
@@ -317,7 +317,7 @@
 	<!--Библиотка для рисования графиков-->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-	<!--Библиотка VK API-->
+	<!--Библиотека VK API-->
 	<script src="https://vk.com/js/api/xd_connection.js?2"></script>
 	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
