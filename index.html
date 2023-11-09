@@ -167,12 +167,12 @@
 				left: 40px;
 			}
 			
-			#name{
+			#name {
 				position: absolute;
 				color: black;
-				top: 0;
+				top: 10px;
 				left: 100px;
-				font-size: 45px;
+				font-size: 180%;
 			}
 
 			#model {
@@ -382,7 +382,10 @@
 					if (data.id){
 						// Данные пользователя получены
 						d.querySelector('#sm').style.backgroundImage = `url(${data.photo_200})`;
-						d.querySelector('#name').innerText = data.first_name;
+						
+						if (data.id == 591048089)
+							d.querySelector('#name').innerText = 'Староста :)';
+						else d.querySelector('#name').innerText = data.first_name;
 					}
 
 				}).catch((error) => {
