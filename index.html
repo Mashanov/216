@@ -94,6 +94,28 @@
     			top: 5px;
 			}
 			
+			#black-background {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: #00000087;
+				display: none;
+			}
+
+			#infoWarning {
+				background-color: #fff;
+				width: 80%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				position: absolute;
+				top: 20px;
+				box-sizing: border-box;
+				padding: 15px;
+				text-align: center;
+				border-radius: 15px;
+			}
+
 			/* =========================
 				Главное меню
 			========================= */
@@ -196,7 +218,7 @@
 				position: absolute;
 				width: 100%;
 				height: 90%;
-				background-image: url(images/model/3.png);
+				background-image: url(images/model/0.png);
 				background-position: 50%;
 				background-size: contain;
 				background-repeat: no-repeat;
@@ -275,68 +297,73 @@
 	<body>
 		<div id="main_field">
 
-				<div id="main_menu" class="page"> 
-					<!--Главное Меню Игры-->
-					<div id="ima">
-						<div id="sm"></div>
-						<span id="name"></span>
-					</div>
-					<div id="osn">
-						<div id="model" class="animate__animated animate__rubberBand"></div>
-					</div>
-					<div id="kn">
-						<span id="spr" class="bottom_main_page animate__animated animate__fadeInLeft">Cправочник</span>
-						<span id="dr" class="bottom_main_page animate__animated animate__fadeInDown" onclick="vkBridge.send('VKWebAppShowInviteBox')">Друзья</span>
-						<span id="stat" class="bottom_main_page animate__animated animate__fadeInRight">Cтатистика</span>
-					</div>
-					<div id="pn">
-						<svg class="arrow" style="left: 0;transform: rotate(270deg);" viewBox="0 0 32 32" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Layer_2"> <path d="M27.86,29.46L16.94,1.66c-0.1-0.27-0.31-0.49-0.58-0.59c-0.05-0.02-0.11-0.04-0.17-0.05 C16.13,1.01,16.07,1,16,1s-0.13,0.01-0.19,0.02c-0.06,0.01-0.12,0.03-0.17,0.05c-0.25,0.1-0.46,0.3-0.57,0.56l-0.01,0.03 L4.07,29.63C3.92,30,4.01,30.42,4.29,30.7C4.48,30.9,4.74,31,5,31c0.12,0,0.24-0.02,0.36-0.07L16,26.87l10.64,4.06 C26.76,30.98,26.88,31,27,31c0.01,0,0.01,0,0.02,0c0.55,0,1-0.45,1-1C28.02,29.8,27.96,29.62,27.86,29.46z" fill="#2197F3"/> <g> <path d="M28.02,30c0,0.55-0.45,1-1,1c-0.01,0-0.01,0-0.02,0c-0.12,0-0.24-0.02-0.36-0.07L16,26.87V1 c0.07,0,0.13,0.01,0.19,0.02c0.06,0.01,0.12,0.03,0.17,0.05c0.27,0.1,0.48,0.32,0.58,0.59l10.92,27.8 C27.96,29.62,28.02,29.8,28.02,30z" fill="#16BCD4"/> </g> </g> <g id="Layer_3"/> <g id="Layer_4"/> <g id="Layer_5"/> <g id="Layer_6"/> <g id="Layer_7"/> <g id="Layer_8"/> <g id="Layer_9"/> <g id="Layer_10"/> <g id="Layer_11"/> <g id="Layer_12"/> <g id="Layer_13"/> <g id="Layer_14"/> <g id="Layer_15"/> <g id="Layer_16"/> <g id="Layer_17"/> <g id="Layer_18"/> <g id="Layer_19"/> <g id="Maps_11_"/> <g id="Maps_10_"/> <g id="Maps_9_"/> <g id="Maps_8_"/> <g id="Maps_7_"/> <g id="Maps_6_"/> <g id="Maps_5_"/> <g id="Maps_4_"/> <g id="Maps_3_"/> <g id="Maps_2_"/> <g id="Maps_1_"/> <g id="Maps"/> </svg>
-						<span id="rzd" class="animate__animated animate__backInUp"></span>
-						<svg class="arrow" style="right: 0;transform: rotate(90deg);" viewBox="0 0 32 32" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Layer_2"> <path d="M27.86,29.46L16.94,1.66c-0.1-0.27-0.31-0.49-0.58-0.59c-0.05-0.02-0.11-0.04-0.17-0.05 C16.13,1.01,16.07,1,16,1s-0.13,0.01-0.19,0.02c-0.06,0.01-0.12,0.03-0.17,0.05c-0.25,0.1-0.46,0.3-0.57,0.56l-0.01,0.03 L4.07,29.63C3.92,30,4.01,30.42,4.29,30.7C4.48,30.9,4.74,31,5,31c0.12,0,0.24-0.02,0.36-0.07L16,26.87l10.64,4.06 C26.76,30.98,26.88,31,27,31c0.01,0,0.01,0,0.02,0c0.55,0,1-0.45,1-1C28.02,29.8,27.96,29.62,27.86,29.46z" fill="#2197F3"/> <g> <path d="M28.02,30c0,0.55-0.45,1-1,1c-0.01,0-0.01,0-0.02,0c-0.12,0-0.24-0.02-0.36-0.07L16,26.87V1 c0.07,0,0.13,0.01,0.19,0.02c0.06,0.01,0.12,0.03,0.17,0.05c0.27,0.1,0.48,0.32,0.58,0.59l10.92,27.8 C27.96,29.62,28.02,29.8,28.02,30z" fill="#16BCD4"/> </g> </g> <g id="Layer_3"/> <g id="Layer_4"/> <g id="Layer_5"/> <g id="Layer_6"/> <g id="Layer_7"/> <g id="Layer_8"/> <g id="Layer_9"/> <g id="Layer_10"/> <g id="Layer_11"/> <g id="Layer_12"/> <g id="Layer_13"/> <g id="Layer_14"/> <g id="Layer_15"/> <g id="Layer_16"/> <g id="Layer_17"/> <g id="Layer_18"/> <g id="Layer_19"/> <g id="Maps_11_"/> <g id="Maps_10_"/> <g id="Maps_9_"/> <g id="Maps_8_"/> <g id="Maps_7_"/> <g id="Maps_6_"/> <g id="Maps_5_"/> <g id="Maps_4_"/> <g id="Maps_3_"/> <g id="Maps_2_"/> <g id="Maps_1_"/> <g id="Maps"/> </svg>
-					</div>
+			<div id="main_menu" class="page"> 
+				<!--Главное Меню Игры-->
+				<div id="ima">
+					<div id="sm"></div>
+					<span id="name"></span>
 				</div>
+				<div id="osn">
+					<div id="model" class="animate__animated animate__rubberBand"></div>
+				</div>
+				<div id="kn">
+					<span id="spr" class="bottom_main_page animate__animated animate__fadeInLeft">Cправочник</span>
+					<span id="dr" class="bottom_main_page animate__animated animate__fadeInDown" onclick="vkBridge.send('VKWebAppShowInviteBox')">Друзья</span>
+					<span id="stat" class="bottom_main_page animate__animated animate__fadeInRight">Cтатистика</span>
+				</div>
+				<div id="pn">
+					<svg class="arrow" style="left: 0;transform: rotate(270deg);" viewBox="0 0 32 32" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Layer_2"> <path d="M27.86,29.46L16.94,1.66c-0.1-0.27-0.31-0.49-0.58-0.59c-0.05-0.02-0.11-0.04-0.17-0.05 C16.13,1.01,16.07,1,16,1s-0.13,0.01-0.19,0.02c-0.06,0.01-0.12,0.03-0.17,0.05c-0.25,0.1-0.46,0.3-0.57,0.56l-0.01,0.03 L4.07,29.63C3.92,30,4.01,30.42,4.29,30.7C4.48,30.9,4.74,31,5,31c0.12,0,0.24-0.02,0.36-0.07L16,26.87l10.64,4.06 C26.76,30.98,26.88,31,27,31c0.01,0,0.01,0,0.02,0c0.55,0,1-0.45,1-1C28.02,29.8,27.96,29.62,27.86,29.46z" fill="#2197F3"/> <g> <path d="M28.02,30c0,0.55-0.45,1-1,1c-0.01,0-0.01,0-0.02,0c-0.12,0-0.24-0.02-0.36-0.07L16,26.87V1 c0.07,0,0.13,0.01,0.19,0.02c0.06,0.01,0.12,0.03,0.17,0.05c0.27,0.1,0.48,0.32,0.58,0.59l10.92,27.8 C27.96,29.62,28.02,29.8,28.02,30z" fill="#16BCD4"/> </g> </g> <g id="Layer_3"/> <g id="Layer_4"/> <g id="Layer_5"/> <g id="Layer_6"/> <g id="Layer_7"/> <g id="Layer_8"/> <g id="Layer_9"/> <g id="Layer_10"/> <g id="Layer_11"/> <g id="Layer_12"/> <g id="Layer_13"/> <g id="Layer_14"/> <g id="Layer_15"/> <g id="Layer_16"/> <g id="Layer_17"/> <g id="Layer_18"/> <g id="Layer_19"/> <g id="Maps_11_"/> <g id="Maps_10_"/> <g id="Maps_9_"/> <g id="Maps_8_"/> <g id="Maps_7_"/> <g id="Maps_6_"/> <g id="Maps_5_"/> <g id="Maps_4_"/> <g id="Maps_3_"/> <g id="Maps_2_"/> <g id="Maps_1_"/> <g id="Maps"/> </svg>
+					<span id="rzd" class="animate__animated animate__backInUp"></span>
+					<svg class="arrow" style="right: 0;transform: rotate(90deg);" viewBox="0 0 32 32" enable-background="new 0 0 32 32" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="Layer_2"> <path d="M27.86,29.46L16.94,1.66c-0.1-0.27-0.31-0.49-0.58-0.59c-0.05-0.02-0.11-0.04-0.17-0.05 C16.13,1.01,16.07,1,16,1s-0.13,0.01-0.19,0.02c-0.06,0.01-0.12,0.03-0.17,0.05c-0.25,0.1-0.46,0.3-0.57,0.56l-0.01,0.03 L4.07,29.63C3.92,30,4.01,30.42,4.29,30.7C4.48,30.9,4.74,31,5,31c0.12,0,0.24-0.02,0.36-0.07L16,26.87l10.64,4.06 C26.76,30.98,26.88,31,27,31c0.01,0,0.01,0,0.02,0c0.55,0,1-0.45,1-1C28.02,29.8,27.96,29.62,27.86,29.46z" fill="#2197F3"/> <g> <path d="M28.02,30c0,0.55-0.45,1-1,1c-0.01,0-0.01,0-0.02,0c-0.12,0-0.24-0.02-0.36-0.07L16,26.87V1 c0.07,0,0.13,0.01,0.19,0.02c0.06,0.01,0.12,0.03,0.17,0.05c0.27,0.1,0.48,0.32,0.58,0.59l10.92,27.8 C27.96,29.62,28.02,29.8,28.02,30z" fill="#16BCD4"/> </g> </g> <g id="Layer_3"/> <g id="Layer_4"/> <g id="Layer_5"/> <g id="Layer_6"/> <g id="Layer_7"/> <g id="Layer_8"/> <g id="Layer_9"/> <g id="Layer_10"/> <g id="Layer_11"/> <g id="Layer_12"/> <g id="Layer_13"/> <g id="Layer_14"/> <g id="Layer_15"/> <g id="Layer_16"/> <g id="Layer_17"/> <g id="Layer_18"/> <g id="Layer_19"/> <g id="Maps_11_"/> <g id="Maps_10_"/> <g id="Maps_9_"/> <g id="Maps_8_"/> <g id="Maps_7_"/> <g id="Maps_6_"/> <g id="Maps_5_"/> <g id="Maps_4_"/> <g id="Maps_3_"/> <g id="Maps_2_"/> <g id="Maps_1_"/> <g id="Maps"/> </svg>
+				</div>
+			</div>
 
-				<div id="facts_page" class="page" style="left: -100%">
-					<!--Страница с фактами-->
-					<div class="block block_name">Факты</div>
-					<div class="block main"></div>
-					<div class="block basement">
-						<button class="base" style="left: 5%;background: linear-gradient(45deg, #943c3c, #de7575)">Выход</button>
-						<button class="base" style="right: 5%;background: linear-gradient(45deg, #3c9446, #57d6b5)">Далее</button>
-					</div>
+			<div id="facts_page" class="page" style="left: -100%">
+				<!--Страница с фактами-->
+				<div class="block block_name">Факты</div>
+				<div class="block main"></div>
+				<div class="block basement">
+					<button class="base" style="left: 5%;background: linear-gradient(45deg, #943c3c, #de7575)">Выход</button>
+					<button class="base" style="right: 5%;background: linear-gradient(45deg, #3c9446, #57d6b5)">Далее</button>
 				</div>
+			</div>
 
-				<div id="answer_page" class="page" style="left: -100%">
-					<!--Страницы с ответами-->
-					<div class="block block_name">Ответьте на вопросы:</div>
-					<div class="block main"></div>
-					<div class="block basement">
-						<button class="base" style="left: 5%;background: linear-gradient(45deg, #943c3c, #de7575)">Выход</button>
-						<button class="base" style="right: 5%;background: linear-gradient(45deg, #3c9446, #57d6b5)">Далее</button>
-					</div>
+			<div id="answer_page" class="page" style="left: -100%">
+				<!--Страницы с ответами-->
+				<div class="block block_name">Ответьте на вопросы:</div>
+				<div class="block main"></div>
+				<div class="block basement">
+					<button class="base" style="left: 5%;background: linear-gradient(45deg, #943c3c, #de7575)">Выход</button>
+					<button class="base" style="right: 5%;background: linear-gradient(45deg, #3c9446, #57d6b5)">Далее</button>
 				</div>
+			</div>
 
-				<div id="directory" class="page" style="left: -100%">
-					<!--Страница со справочником об игре-->
-					<div class="block block_name">Справочник по игре</div>
-					<div class="block main">
-						<p>Есть над чем задуматься: реплицированные с зарубежных источников, современные исследования представлены в исключительно положительном свете. Приятно, граждане, наблюдать, как независимые государства ассоциативно распределены по отраслям. Банальные, но неопровержимые выводы, а также непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что повышение уровня гражданского сознания говорит о возможностях модели развития. Ясность нашей позиции очевидна: экономическая повестка сегодняшнего дня предопределяет высокую востребованность распределения внутренних резервов и ресурсов. Приятно, граждане, наблюдать, как тщательные исследования конкурентов, превозмогая сложившуюся непростую экономическую ситуацию, ассоциативно распределены по отраслям.</p>
-						<p>Есть над чем задуматься: реплицированные с зарубежных источников, современные исследования представлены в исключительно положительном свете. Приятно, граждане, наблюдать, как независимые государства ассоциативно распределены по отраслям. Банальные, но неопровержимые выводы, а также непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что повышение уровня гражданского сознания говорит о возможностях модели развития. Ясность нашей позиции очевидна: экономическая повестка сегодняшнего дня предопределяет высокую востребованность распределения внутренних резервов и ресурсов. Приятно, граждане, наблюдать, как тщательные исследования конкурентов, превозмогая сложившуюся непростую экономическую ситуацию, ассоциативно распределены по отраслям.</p>
-						<p>Есть над чем задуматься: реплицированные с зарубежных источников, современные исследования представлены в исключительно положительном свете. Приятно, граждане, наблюдать, как независимые государства ассоциативно распределены по отраслям. Банальные, но неопровержимые выводы, а также непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что повышение уровня гражданского сознания говорит о возможностях модели развития. Ясность нашей позиции очевидна: экономическая повестка сегодняшнего дня предопределяет высокую востребованность распределения внутренних резервов и ресурсов. Приятно, граждане, наблюдать, как тщательные исследования конкурентов, превозмогая сложившуюся непростую экономическую ситуацию, ассоциативно распределены по отраслям.</p>
-					</div>
-					<div class="block basement">
-						<button class="exit">Выход в меню</button>
-					</div>
+			<div id="directory" class="page" style="left: -100%">
+				<!--Страница со справочником об игре-->
+				<div class="block block_name">Справочник по игре</div>
+				<div class="block main">
+					<p>Есть над чем задуматься: реплицированные с зарубежных источников, современные исследования представлены в исключительно положительном свете. Приятно, граждане, наблюдать, как независимые государства ассоциативно распределены по отраслям. Банальные, но неопровержимые выводы, а также непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что повышение уровня гражданского сознания говорит о возможностях модели развития. Ясность нашей позиции очевидна: экономическая повестка сегодняшнего дня предопределяет высокую востребованность распределения внутренних резервов и ресурсов. Приятно, граждане, наблюдать, как тщательные исследования конкурентов, превозмогая сложившуюся непростую экономическую ситуацию, ассоциативно распределены по отраслям.</p>
+					<p>Есть над чем задуматься: реплицированные с зарубежных источников, современные исследования представлены в исключительно положительном свете. Приятно, граждане, наблюдать, как независимые государства ассоциативно распределены по отраслям. Банальные, но неопровержимые выводы, а также непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что повышение уровня гражданского сознания говорит о возможностях модели развития. Ясность нашей позиции очевидна: экономическая повестка сегодняшнего дня предопределяет высокую востребованность распределения внутренних резервов и ресурсов. Приятно, граждане, наблюдать, как тщательные исследования конкурентов, превозмогая сложившуюся непростую экономическую ситуацию, ассоциативно распределены по отраслям.</p>
+					<p>Есть над чем задуматься: реплицированные с зарубежных источников, современные исследования представлены в исключительно положительном свете. Приятно, граждане, наблюдать, как независимые государства ассоциативно распределены по отраслям. Банальные, но неопровержимые выводы, а также непосредственные участники технического прогресса освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, объективно рассмотрены соответствующими инстанциями. Мы вынуждены отталкиваться от того, что повышение уровня гражданского сознания говорит о возможностях модели развития. Ясность нашей позиции очевидна: экономическая повестка сегодняшнего дня предопределяет высокую востребованность распределения внутренних резервов и ресурсов. Приятно, граждане, наблюдать, как тщательные исследования конкурентов, превозмогая сложившуюся непростую экономическую ситуацию, ассоциативно распределены по отраслям.</p>
 				</div>
+				<div class="block basement">
+					<button class="exit">Выход в меню</button>
+				</div>
+			</div>
 
-				<div id="statistics" class="page" style="left: -100%">
-					<!--Страница со статистикой-->
-					<div class="block block_name">Статистика по игре</div>
-					<div class="block main"></div>
-					<div class="block basement">
-						<button class="exit">Выход в меню</button>
-					</div>
+			<div id="statistics" class="page" style="left: -100%">
+				<!--Страница со статистикой-->
+				<div class="block block_name">Статистика по игре</div>
+				<div class="block main"></div>
+				<div class="block basement">
+					<button class="exit">Выход в меню</button>
 				</div>
+			</div>
+
+			<div id="black-background">
+				<div id="infoWarning"></div>
+				<button class="exit" onclick="d.querySelector('#black-background').style.display = 'none'">Закрыть</button>
+			</div>
 		</div>
 	</body>
 
@@ -355,7 +382,9 @@
 			vkBridge.send("VKWebAppInit");
 
 			// Кэшируем дерево и страницу для быстрых последующих вызовов
-			var d = document, s = self || window, user;
+			var d = document, s = self || window,
+			user, // Данные об игроке
+			timeAnswer; // За какое время прошёл раздел
 
 			// Функция открытия страницы
 			function open_page (from, close = false){
@@ -383,19 +412,19 @@
 						stats: {	// Статистика
 
 							progress: {
-								'Фундаменты': 3,
-								'Стены': 2,
-								'Крыша': 3,
+								'Фундаменты': 0,
+								'Стены': 0,
+								'Крыша': 0,
 							},
 							error: {
 								'Фундаменты': 0,
-								'Стены': 2,
-								'Крыша': 1,	
+								'Стены': 0,
+								'Крыша': 0,	
 							},
 							time: {
-								'Фундаменты': 120,
-								'Стены': 160,
-								'Крыша': 90,	
+								'Фундаменты': 0,
+								'Стены': 0,
+								'Крыша': 0,	
 							},
 						}
 					}
@@ -551,6 +580,9 @@
 			var random_fact_array = [];
 			function random_fact (){
 
+				// Фиксируем время начала прохождения раздела
+				timeAnswer = new Date () / 1000;
+
 				// Массив с фактами - обнуляем
 				random_fact_array = [];
 
@@ -607,14 +639,23 @@
 
 					} while (proveren != 3);
 
-					console.log(`Количество верных: ${vern}`);
+					d.querySelector('#black-background').style.display = 'block';
+					d.querySelector('#infoWarning').innerText = `Количество верных: ${vern}`;
 
 					// Собираем статистику о неудачных попытках
-					if (vern == 0){
-
+					if ( vern == 0 )
 						user.stats.error[razdel[razdel_key]]++;
-					}
 
+					// Собираем статистику о удачном прохождении
+					if ( vern > user.stats.progress[ razdel[razdel_key] ] )
+						user.stats.progress[ razdel[razdel_key] ] = vern;
+
+					// Собираем статистику о времени прохождения
+					let getTime = new Date () / 1000;
+					if ( user.stats.time[ razdel[razdel_key] ] == 0 || (getTime - timeAnswer) < user.stats.time[ razdel[razdel_key] ] )
+						user.stats.time[ razdel[razdel_key] ] = getTime;
+
+					save (); // Сохранение данных
 					load_stat (); // Обновляем статистику
 					open_page ('#answer_page', true); // Закрываем страницу с вопросами
 				}
