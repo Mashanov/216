@@ -218,7 +218,6 @@
 				position: absolute;
 				width: 100%;
 				height: 90%;
-				background-image: url(images/model/0.png);
 				background-position: 50%;
 				background-size: contain;
 				background-repeat: no-repeat;
@@ -459,6 +458,9 @@
 		/* =========================
 			Главное меню
 		========================= */
+			// Показываем модель игроку
+			d.querySelector('#model').style.backgroundImage = `url(images/model/${user.open_razdel - 1}.png)`;
+
 			// По нажатию на кнопку открыть справочник
 			d.querySelector('#spr').onclick = ()=>{ open_page ('#directory', false) }
 
@@ -755,8 +757,11 @@
 						user.stats.time[ razdel[razdel_key] ] = (getTime - timeAnswer);
 
 					// Открываем новый раздел если это необходимо
-					if (user.open_razdel == razdel_key && vern >= 1)
+					if (user.open_razdel == razdel_key && vern >= 1){
+
+						d.querySelector('#model').style.backgroundImage = `url(images/model/${user.open_razdel}.png)`;
 						user.open_razdel = razdel_key + 1;
+					}
 
 					save (); // Сохранение данных
 					load_stat (); // Обновляем статистику
@@ -807,10 +812,13 @@
 			// Функция для загрузки статистики
 			function load_stat (){
 
-				d.querySelector('#statistics div.block.main').innerHTML = `
-				<canvas id="myChart1"></canvas>
+				//var gr = ``;
+
+				var gr = `<canvas id="myChart1"></canvas>
 				<canvas id="myChart2"></canvas>
 				<canvas id="myChart3"></canvas>`;
+
+				d.querySelector('#statistics div.block.main').innerHTML = gr;
 
 				new Chart(d.getElementById('myChart1'), {
 					type: 'bar',
@@ -871,9 +879,9 @@
 						datasets: [{
 							label: 'Минимальное затраченное время на прохождение раздела в минутах',
 							data: [
-								user.stats.time['Фундаменты'] / 60,
-								user.stats.time['Стены'] / 60,
-								user.stats.time['Крыша'] / 60
+								(user.stats.time['Фундаменты'] / 60).toFixed(2),
+								(user.stats.time['Стены'] / 60).toFixed(2),
+								(user.stats.time['Крыша'] / 60).toFixed(2)
 							],
 						}]
 						},
