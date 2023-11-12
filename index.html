@@ -275,6 +275,10 @@
 				background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
 			}
 
+			#wallSet {
+				position: relative;
+			}
+
 			/* =========================
 				Общее - шрифты и т.п.
 			========================= */
@@ -915,6 +919,31 @@
 
 				if (d.querySelector('#statistics div.block.main').innerHTML == '')
 					d.querySelector('#statistics div.block.main').innerHTML = 'Нет статистики по вашему профилю';
+				else d.querySelector('#statistics div.block.main').insertAdjacentHTML( 'beforeend', `<button id="wallSet" onclick="wallSet ()">Разместить в VK</button>`);
+			}
+
+			// Функция для размещения статистики в профиле в VK
+			function wallSet (){
+
+				vkBridge.send('VKWebAppShowWallPostBox', {
+
+					message: `Играю в обучающую игру для строителей и архитекторов !\n
+					Моя статистика в игре:
+					Раздел фундаменты - ${user.stats.progress['Фундаменты']}\\3
+					Раздел стены - ${user.stats.progress['Стены']}\\3
+					Раздел крыши - ${user.stats.progress['Крыша']}\\3`,
+					attachments: 'https://vk.com/app51761707'
+
+				}).then((data) => { 
+
+					if (data.post_id) {
+					// Запись размещена
+					}
+
+				}).catch((error) => {
+						// Ошибка
+						console.log(error);
+				});
 			}
 	</script>
 </html>
