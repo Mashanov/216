@@ -341,8 +341,24 @@
 				<!--Страница со справочником об игре-->
 				<div class="block block_name">Справочник по игре</div>
 				<div class="block main">
+					<p>Введение</p>
+					<p>Обучающая игра для строителей и архитекторов выполнена в рамках учебного задания по дисциплине WEB-технологии 216 группой НГАСУ (Сибстрин).</p>
+					<hr>
 					<p>Концепция  игры</p>
 					<p>Перед игроком представлены разделы о строительстве: фундаменты, стены, крышы. При нажатии на раздел игроку открываются карточки с фактами например о фундаментах. Игрок должен запомнить эти факты и в следующем окне ответить на вопросы связанные с этими фактами. После каждого удачного прохождении такого раздела у игрока на экране постепенно появляется картинка здания, после прохождения всех разделов у игрока на экране будет отображаться готовый жилой дом.</p>	
+					<hr>
+					<p>Как играть ?</p>
+					<p>Внизу экрана располагается кнопка раздела "Фундаменты", нажмите на эту кнопку. Запомните представленные на экране факты и нажмите кнопку "Далее". Ответьте на вопросы, нажав на место выбора понравившегося ответа.</p>
+					<hr>
+					<p>Ключевые слова</p>
+					<p>Обучение, архитектура, строительство, вопросы, факты</p>
+					<hr>
+					<p>Ориентация</p>
+					<p>Портретная</p>
+					<hr>
+					<p>Поддерживаемые платформы</p>
+					<p>Android(Остальное), Android(Яндекс Браузер), Android(Приложение «Яндекс с Алисой»), Десктоп(Все десктопные браузеры)</p>
+					<hr>
 				</div>
 				<div class="block basement">
 					<button class="exit">Выход в меню</button>
@@ -805,87 +821,100 @@
 			// Функция для загрузки статистики
 			function load_stat (){
 
-				//var gr = ``;
+				// Очищаем
+				d.querySelector('#statistics div.block.main').innerHTML = '';
 
-				var gr = `<canvas id="myChart1"></canvas>
-				<canvas id="myChart2"></canvas>
-				<canvas id="myChart3"></canvas>`;
+				if (user.stats.progress['Фундаменты'] != 0){
 
-				d.querySelector('#statistics div.block.main').innerHTML = gr;
+					d.querySelector('#statistics div.block.main').insertAdjacentHTML( 'beforeend', `<canvas id="myChart1"></canvas>`);
 
-				new Chart(d.getElementById('myChart1'), {
-					type: 'bar',
-					data: {
-						labels: ['Фундаменты', 'Стены', 'Крыша'],
-						datasets: [{
-							label: 'Прогресс изучения материала',
-							data: [
-								user.stats.progress['Фундаменты'],
-								user.stats.progress['Стены'],
-								user.stats.progress['Крыша']
-							],
-							borderWidth: 1
-						}]
-					},
-					options: {
-					scales: {
-						y: {
-						beginAtZero: true
-						}
-					}
-					}
-				});
-
-				new Chart(d.getElementById('myChart2'), {
-					type: 'pie',
-					data: {
-						labels: [
-							'Фундаменты',
-							'Стены',
-							'Крыша'
-						],
-						datasets: [{
-							label: 'Ваши неудачи по разделам',
-							data: [
-								user.stats.error['Фундаменты'],
-								user.stats.error['Стены'],
-								user.stats.error['Крыша']
-							],
-							backgroundColor: [
-								'rgb(255, 99, 132)',
-								'rgb(54, 162, 235)',
-								'rgb(255, 205, 86)'
-							],
-							hoverOffset: 4
-						}]
-					}
-				});
-
-				new Chart(d.getElementById('myChart3'), {
-					type: 'line',
-					data: {
-						labels: [
-							'Фундаменты',
-							'Стены',
-							'Крыша'
-						],
-						datasets: [{
-							label: 'Минимальное затраченное время на прохождение раздела в минутах',
-							data: [
-								(user.stats.time['Фундаменты'] / 60).toFixed(2),
-								(user.stats.time['Стены'] / 60).toFixed(2),
-								(user.stats.time['Крыша'] / 60).toFixed(2)
-							],
-						}]
+					new Chart(d.getElementById('myChart1'), {
+						type: 'bar',
+						data: {
+							labels: ['Фундаменты', 'Стены', 'Крыша'],
+							datasets: [{
+								label: 'Прогресс изучения материала',
+								data: [
+									user.stats.progress['Фундаменты'],
+									user.stats.progress['Стены'],
+									user.stats.progress['Крыша']
+								],
+								borderWidth: 1
+							}]
 						},
 						options: {
 						scales: {
 							y: {
-								beginAtZero: true
+							beginAtZero: true
 							}
 						}
-					}
-				});
+						}
+					});
+				}
+
+				if (user.stats.error['Фундаменты'] != 0 || user.stats.error['Стены'] != 0 || user.stats.error['Крыша'] != 0){
+
+					d.querySelector('#statistics div.block.main').insertAdjacentHTML( 'beforeend', `<canvas id="myChart2"></canvas>`);
+
+					new Chart(d.getElementById('myChart2'), {
+						type: 'pie',
+						data: {
+							labels: [
+								'Фундаменты',
+								'Стены',
+								'Крыша'
+							],
+							datasets: [{
+								label: 'Ваши неудачи по разделам',
+								data: [
+									user.stats.error['Фундаменты'],
+									user.stats.error['Стены'],
+									user.stats.error['Крыша']
+								],
+								backgroundColor: [
+									'rgb(255, 99, 132)',
+									'rgb(54, 162, 235)',
+									'rgb(255, 205, 86)'
+								],
+								hoverOffset: 4
+							}]
+						}
+					});
+				}
+
+				if (user.stats.time['Фундаменты'] != 0){
+
+					d.querySelector('#statistics div.block.main').insertAdjacentHTML( 'beforeend', `<canvas id="myChart3"></canvas>`);
+
+					new Chart(d.getElementById('myChart3'), {
+						type: 'line',
+						data: {
+							labels: [
+								'Фундаменты',
+								'Стены',
+								'Крыша'
+							],
+							datasets: [{
+								label: 'Минимальное затраченное время на прохождение раздела в минутах',
+								data: [
+									Number((user.stats.time['Фундаменты'] / 60).toFixed(2)),
+									Number((user.stats.time['Стены'] / 60).toFixed(2)),
+									Number((user.stats.time['Крыша'] / 60).toFixed(2))
+								],
+							}]
+							},
+							options: {
+							scales: {
+								y: {
+									beginAtZero: true
+								}
+							}
+						}
+					});
+				}
+
+				if (d.querySelector('#statistics div.block.main').innerHTML == '')
+					d.querySelector('#statistics div.block.main').innerHTML = 'Нет статистики по вашему профилю';
 			}
 	</script>
 </html>
